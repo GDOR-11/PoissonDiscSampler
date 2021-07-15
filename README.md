@@ -1,10 +1,14 @@
 # PoissonDiscSampler.js
 simple library for poisson disc sampling
 
-<h1>font test lol</h1>
-<h2>font test lol</h2>
-<h3>font test lol</h3>
-<h4>font test lol</h4>
-<h5>font test lol</h5>
-<h6>font test lol</h6>
-font test lol
+<h1>How to use</h1>
+<code>
+    var r = 3; // minimum distance between points
+    var k = 8; // number of trials before removing point from active list. you just have to know that bigger is better, but slower
+    var width = 100; // maximum x coordinate to sample points
+    var height = 100; // maximum y coordinate to sample points
+    var poissonDiscSampler = new PoissonDiscSampler(r, k, width, height);
+    var points = poissonDiscSampler.sample();
+    console.log(points);
+    // [{x, y}, {x, y}, {x, y}, ...]
+</code>
