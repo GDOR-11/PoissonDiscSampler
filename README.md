@@ -2,7 +2,7 @@
 simple library for poisson disc sampling
 
 <h1>How to use</h1>
-<code>
+<div style = 'background-color: grey;'>
     var r = 3; // minimum distance between points
     <br>
     var k = 8; // number of trials before removing point from active list. you just have to know that bigger is better, but slower
@@ -18,4 +18,4 @@ simple library for poisson disc sampling
     console.log(points);
     <br>
     // [{x, y}, {x, y}, {x, y}, ...]
-</code>
+</div>
