@@ -1,7 +1,7 @@
 # PoissonDiscSampler.js
 simple library for poisson disc sampling
 
-<h1>How to use</h1>
+<h2>How to use</h2>
 <pre>
     <code>
         var r = 3; // minimum distance between points
