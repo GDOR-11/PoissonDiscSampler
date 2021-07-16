@@ -16,3 +16,4 @@ simple library for poisson disc sampling
         // [{x, y}, {x, y}, {x, y}, ...]
     </code>
 </pre>
+<h2>specifications</h2>
