@@ -20,5 +20,5 @@ simple library for poisson disc sampling
 <h2>attributes</h2>
 <h3>r</h3>
 the minimum distance between points
-<h3>sqrt2_r</h3>
-private. the value of r/sqrt(2).
+<h3>sqrt2_r (private)</h3>
+the value of r/sqrt(2).
