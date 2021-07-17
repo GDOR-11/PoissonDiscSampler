@@ -30,6 +30,7 @@ const PoissonDiscSampler = (function() {
 			}
 		}
 		sample(initialPoint = {x: Math.random() * this.#width, y: Math.random() * this.#height}) {
+			this.clear();
 			this.addPoint(initialPoint);
 			while(this.#activeList.length > 0) {
 				this.sampleStep();
@@ -43,11 +44,11 @@ const PoissonDiscSampler = (function() {
 			let index = Math.floor(Math.random() * this.#activeList.length);
 			let point = this.#activeList[index];
 			let found = false;
-			let newPoint;
+			let newPoints = [];
 			loop: for(let n = 0;n < this.#k;n++) {
 				let angle = Math.random() * TWO_PI;
 				let length = (1 + Math.random()) * this.#r;
-				newPoint = {
+				let newPoint = {
 					x: length * Math.cos(angle) + point.x,
 					y: length * Math.sin(angle) + point.y
 				}
@@ -72,18 +73,32 @@ const PoissonDiscSampler = (function() {
 					}
 				}
 				this.addPoint(newPoint, indexNewPoint.i, indexNewPoint.j);
+				newPoints.push(newPoint);
 				found = true;
 			}
 			if(!found) {
 				this.#activeList.splice(index, 1);
 			}
-			return newPoint;
+			return newPoints;
 		}
-		addPoint(newPoint, i = Math.floor(newPoint.x * this.#sqrt2_r), j = Math.floor(newPoint.y * this.#sqrt2_r)) {
-			validateNumber(newPoint.x, 'newPoint.x should be a number');
-			validateNumber(newPoint.y, 'newPoint.y should be a number');
-			validateNumber(i, 'i should be a number');
-			validateNumber(j, 'j should be a number');
+		clear() {
+			this.#activeList = [];
+			this.#grid = [];
+			for(let i = 0;i < Math.SQRT2 * this.#width / this.#r;i++) {
+				this.#grid.push([]);
+				for(let j = 0;j < Math.SQRT2 * this.#height / this.#r;j++) {
+					this.#grid[i].push(-1);
+				}
+			}
+			this.#points = [];
+		}
+		addPoint(newPoint = {x: Math.random() * this.#width, y: Math.random() * this.#height}, i = NaN, j = NaN, flag) {
+			newPoint.x = validateNumber(newPoint != null ? newPoint.x : NaN, 'newPoint.x should be a number');
+			newPoint.y = validateNumber(newPoint != null ? newPoint.y : NaN, 'newPoint.y should be a number');
+			i = !isNaN(i) ? i : Math.floor(newPoint.x * this.#sqrt2_r);
+			j = !isNaN(j) ? j : Math.floor(newPoint.y * this.#sqrt2_r);
+			i = validateNumber(i, 'i should be a number');
+			j = validateNumber(j, 'j should be a number');
 			this.#activeList.push(newPoint);
 			this.#grid[i][j] = newPoint;
 			this.#points.push(newPoint);
