@@ -2,6 +2,8 @@
 a simple library for poisson disc sampling, maybe i will add a .min
 <br><br>
 if any error comes from inside the library (not made by a throw), please put it on issues, even if you were looking for errors
+<br><br>
+demo <a href = 'gdor-11.github.io/PoissonDiscSampler/demo.html'>here</a>
 
 <h1>PoissonDiscSampler class</h1>
 <h2>constructor</h2>
