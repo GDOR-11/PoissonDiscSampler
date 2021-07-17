@@ -38,7 +38,7 @@ the points witch are currently in the active list
 all of the points that were sampled
 <h2>methods</h2>
 <h3>sample(?initialPoint = {x, y})</h3>
-sample all the points until the active list is empty. basically when the rectangle is full for large enough k.
+sample all the points until the active list is empty. basically when the rectangle is full for large enough k (greater than 2 normally).
 <br>
 returns all sampled points
 <h3>sampleStep()</h3>
