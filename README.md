@@ -38,8 +38,14 @@ the points witch are currently in the active list
 all of the points that were sampled
 <h2>methods</h2>
 <h3>sample(?initialPoint = {x, y})</h3>
-sample all the points until the active list is empty. basically when the rectangle is full for large enough k
+sample all the points until the active list is empty. basically when the rectangle is full for large enough k.
+<br>
+returns all sampled points
 <h3>sampleStep()</h3>
 does one step of the sample method, only use when animating
+<br>
+returns all sampled points in this step
 <h3>addPoint(newPoint = {x, y}, ?i = number, ?j = number)</h3>
 adds a point to activeList, grid and points
+<br>
+returns nothing
