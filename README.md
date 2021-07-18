@@ -1,4 +1,4 @@
-a simple library for poisson disc sampling, maybe i will add a .min
+a simple library for poisson disc sampling
 <br><br>
 if any error comes from inside the library (not made by a throw), please put it on issues, even if you were looking for errors
 <br><br>
